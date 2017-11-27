@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Examen-Cliente</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="jquery-3.2.1.min.js" type="text/javascript"></script>
+        <link href="bootstrap.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <h3>Examen Cliente Ismael Garcia</h3>
+
+        <div>
+            <button id="listar">Crear Tabla</button>
+            <button id="vacia">Vaciar Tabla</button>
+            <button id="rellena">Rellenar Tabla</button>
+            <button id="mostrar">Mostrar Pacientes</button>
+
+
+        </div>
+        <script>
+            $(document).ready(function () {
+                $("#listar").click(function () {
+                    // Generamos la tabla vacia
+                    alt = $("#fila").val();
+                    anch = $("#col").val();
+                    strTabla = "";
+                    for (i = 1; i <= alt; i++) {
+                        strTabla += "<tr>";
+                        for (j = 1; j <= anch; j++) {
+                            strTabla += '<td id="' + i + '-' + j + '"></td>';
+                        }
+                        strTabla += "</tr>";
+                    }
+                    $("#tabla").empty().append(strTabla);
+                    // Rellenamos la tabla mediante llamadas AJAX
+                    for (i = 1; i <= alt; i++) {
+                        function listar(i) {
+                            $.ajax({
+                                url: 'http://localhost:8081/Ismael-servidor/json?ob=paciente&op=get&id=' + i,
+                                type: 'GET',
+                                dataType: 'json',
+                                success: function (data) {
+                                    $("#" + i).append(data.result);
+                                },
+                                error: function () {
+                                    $('#error').html('<p> Ha ocurrido un error</p>');
+                                }
+                            });
+                        }
+                        listar(i);
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>
