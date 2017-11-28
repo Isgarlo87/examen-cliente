@@ -1,0 +1,25 @@
+form, h3{
+text-align: center;
+margin: 0 auto;
+}
+
+button{
+    height: 30px;
+    width: 150px;
+    padding: auto;
+    margin: 5px auto;
+}
+
+button#contar{
+    background-color: lightgreen;
+}
+button#vaciar{
+    background-color: red;
+}
+button#mostrar{
+    background-color: lightgrey;
+}
+button#rellenar{
+    background-color: lightskyblue;
+    margin-left: 80px;
+}
