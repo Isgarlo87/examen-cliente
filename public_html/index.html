@@ -44,7 +44,7 @@
             <div class="row">
                 <div class="col-lg-4"></div>
                 <div class="col-lg-4 boton">
-                    <button type="button" id="mostrar" id="boton" ng-click="mostrar(); mostrarPacientes = true">Mostrar</button>
+                    <button type="button" id="mostrar" ng-click="mostrar(); mostrarPacientes = true">Mostrar</button>
                 </div>
                 <div class="col-lg-4"></div>
             </div>
@@ -63,7 +63,7 @@
                             <th ng-click="ordename('provincia')">Provincia</th>
                             <th ng-click="ordename('pais')">País</th>
                             <th ng-click="ordename('email')">Email</th>
-<!--                            <th ng-click="ordename('telefono1')">Telefono 1</th>
+                            <th ng-click="ordename('telefono1')">Telefono 1</th>
                             <th ng-click="ordename('telefono2')">Telefono 2</th>
                             <th ng-click="ordename('nombre_padre')">Padre</th>
                             <th ng-click="ordename('nombre_madre')">Madre</th>
@@ -73,7 +73,7 @@
                             <th ng-click="ordename('sip_aseguradora')">SIP</th>
                             <th ng-click="ordename('id_tipopago')">Tipo de pago</th>
                             <th ng-click="ordename('id_sexo')">Sexo</th>
--->
+
                         </tr>
                         <tr ng-repeat="p in arrPacientes| orderBy:ordenameje">
                             <td>{{p.id_usuario}}</td>
@@ -87,7 +87,7 @@
                             <td>{{p.provincia}}</td>
                             <td>{{p.pais}}</td>
                             <td>{{p.email}}</td>
-<!--                            <td>{{p.telefono1}}</td>
+                            <td>{{p.telefono1}}</td>
                             <td>{{p.telefono2}}</td>
                             <td>{{p.nombre_padre}}</td>
                             <td>{{p.nombre_madre}}</td>
@@ -97,7 +97,7 @@
                             <td>{{p.sip_aseguradora}}</td>
                             <td>{{p.id_tipopago}}</td>
                             <td>{{p.id_sexo}}</td>
--->
+
                         </tr>
                     </table>
                 </div>

@@ -15,7 +15,7 @@ miModulo.controller('MiControlador', ['$scope', '$http',
             if ($scope.cantidad > 0) {
                 $http({
                     method: 'GET',
-                    url: 'http://localhost:8081/Ismael-servidor/json?ob=paciente&op=rellena&num=' + $scope.cantidad
+                    url: 'http://localhost:8081/Ismael-servidor/json?ob=paciente&op=rellenar&num=' + $scope.cantidad
                 }).then(function successCallback(response) {
                     if (response.data.status == 200) {
                         if (response.data.json == null) {
