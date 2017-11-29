@@ -7,6 +7,7 @@ miModulo.controller('MiControlador', ['$scope', '$http',
         $scope.mostrarPacientes = false;
         
         $scope.num;
+        $scope.result;
         
         $scope.disabled = true;
         $scope.required = true;
@@ -20,7 +21,7 @@ miModulo.controller('MiControlador', ['$scope', '$http',
                     if (response.data.status == 200) {
                         if (response.data.json == null) {
                         } else {
-                            $scope.oPaciente = response.data.json;
+                            $scope.paciente = response.data.json;
                             $scope.boton1 = {
                                 "visibility": "visible",
                                 "display": "inline"
@@ -39,7 +40,7 @@ miModulo.controller('MiControlador', ['$scope', '$http',
             $http({
                 method: 'GET',
                 url: 'http://localhost:8081/Ismael-servidor/json?ob=paciente&op=dump'
-            }).then(function successCallback(response) {
+            }).then(function success(response) {
                 if (response.data.status == 200) {
                     if (response.data.json.length == 0) {
                     } else {
@@ -51,7 +52,7 @@ miModulo.controller('MiControlador', ['$scope', '$http',
                 } else {
                     $scope.error = "Error en la recepción de datos";
                 }
-            }, function errorCallback(response) {
+            }, function error(response) {
                 $scope.error = "Error en la recepción de datos";
             });
 
@@ -61,11 +62,12 @@ miModulo.controller('MiControlador', ['$scope', '$http',
             $http({
                 method: 'GET',
                 url: 'http://localhost:8081/Ismael-servidor/json?ob=paciente&op=cuenta'
-            }).then(function successCallback(response) {
+            }).then(function success(response) {
                 if (response.data.status == 200) {
                     if (response.data.json == null) {
                     } else {
-                        $scope.oPaciente = response.data.json;
+                        
+                        $scope.paciente = response.data.json;
                         $scope.rpp = response.data.json;
                         $scope.boton1 = {
                             "visibility": "visible",
@@ -75,7 +77,7 @@ miModulo.controller('MiControlador', ['$scope', '$http',
                 } else {
                     $scope.error = "Error en la recepción de datos";
                 }
-            }, function errorCallback(response) {
+            }, function error(response) {
                 $scope.error = "Error en la recepción de datos";
             });
 
@@ -84,11 +86,11 @@ miModulo.controller('MiControlador', ['$scope', '$http',
             $http({
                 method: 'GET',
                 url: 'http://localhost:8081/Ismael-servidor/json?ob=paciente&op=vacia'
-            }).then(function successCallback(response) {
+            }).then(function success(response) {
                 if (response.data.status == 200) {
                     if (response.data.json == null) {
                     } else {
-                        $scope.oPaciente = response.data.json;
+                        $scope.paciente = response.data.json;
                         $scope.boton1 = {
                             "visibility": "visible",
                             "display": "inline"
@@ -97,7 +99,7 @@ miModulo.controller('MiControlador', ['$scope', '$http',
                 } else {
                     $scope.error = "Error en la recepción de datos";
                 }
-            }, function errorCallback(response) {
+            }, function error(response) {
                 $scope.error = "Error en la recepción de datos";
             });
         }
@@ -108,7 +110,7 @@ miModulo.controller('MiControlador', ['$scope', '$http',
             } else {
                 $scope.disabled = true;
             }
-            function errorCallback(response) {
+            function error(response) {
                 $scope.error = "Error en la recepción de datos";
             }
         }
