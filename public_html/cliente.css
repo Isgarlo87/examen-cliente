@@ -1,8 +1,17 @@
 form, h3{
-text-align: center;
-margin: 0 auto;
+    text-align: center;
+    margin: 0 auto;
 }
-
+table {
+    margin: 30px auto;
+}         
+.btn {
+    width: 100px;
+    margin: 10px auto;               
+}            
+.boton {
+    text-align: center;
+}
 button{
     height: 30px;
     width: 150px;
@@ -21,5 +30,5 @@ button#mostrar{
 }
 button#rellenar{
     background-color: lightskyblue;
-    margin-left: 80px;
+    margin-top: 5px;
 }
