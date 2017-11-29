@@ -6,7 +6,7 @@ miModulo.controller('MiControlador', ['$scope', '$http',
     function ($scope, $http) {
         $scope.mostrarPacientes = false;
         
-        $scope.cantidad;
+        $scope.num;
         
         $scope.disabled = true;
         $scope.required = true;
@@ -15,7 +15,7 @@ miModulo.controller('MiControlador', ['$scope', '$http',
             if ($scope.cantidad > 0) {
                 $http({
                     method: 'GET',
-                    url: 'http://localhost:8081/Ismael-servidor/json?ob=paciente&op=rellenar&num=' + $scope.cantidad
+                    url: 'http://localhost:8081/Ismael-servidor/json?ob=paciente&op=rellenar&num=' + $scope.num
                 }).then(function successCallback(response) {
                     if (response.data.status == 200) {
                         if (response.data.json == null) {
@@ -38,7 +38,7 @@ miModulo.controller('MiControlador', ['$scope', '$http',
         $scope.mostrar = function () {
             $http({
                 method: 'GET',
-                url: 'http://localhost:8081/Ismael-servidor/json?ob=paciente&op=dump&np=1&rpp=5000'
+                url: 'http://localhost:8081/Ismael-servidor/json?ob=paciente&op=dump'
             }).then(function successCallback(response) {
                 if (response.data.status == 200) {
                     if (response.data.json.length == 0) {
@@ -103,7 +103,7 @@ miModulo.controller('MiControlador', ['$scope', '$http',
         }
         
         $scope.comprobar = function () {
-            if ($scope.cantidad <= 1000 && $scope.cantidad >= 1) {
+            if ($scope.num <= 5000 && $scope.cantidad >= 1) {
                 $scope.disabled = false;
             } else {
                 $scope.disabled = true;
